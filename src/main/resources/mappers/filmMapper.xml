@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lj.mapper.FilmMapper">
+
+    <!--不同名时  使用resultMap进行映射-->
+    <select id="getFilms" resultType="com.lj.model.Film">
+        select id,film_id,film_name,img_path,director,player,`type`,country, `length`,synopsis,play_time
+        from film
+    </select>
+
+    <!--错误示例-->
+    <!--where filmId = #{filmId}-->
+    <!--where film_id = #{film_id}-->
+    <select id="getFilmById" resultType="com.lj.model.Film">
+        select id,film_id,film_name,img_path,director,player,`type`,country, `length`,synopsis,play_time
+        from film
+        where film_id = #{filmId}
+    </select>
+</mapper>
